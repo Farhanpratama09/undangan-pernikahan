@@ -3,6 +3,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Play, Pause, Volume2, VolumeX, SlidersHorizontal } from 'lucide-react';
+import dynamic from 'next/dynamic';
 import { ThemeId } from '@/types/invitation';
 import { portfolioWeddingData, initialGuestbookEntries } from '@/lib/dummy-data';
 import {
@@ -15,10 +16,34 @@ import {
 } from '@/lib/validation';
 import { useAudioController } from '@/hooks/useAudioController';
 import { TactileGate } from '@/components/shared/TactileGate';
-import { PortfolioCommandBar } from '@/components/shared/PortfolioCommandBar';
 import { EditorialMinimalistTheme } from '@/components/themes/EditorialMinimalist';
-import { DarkLuxeTheme } from '@/components/themes/DarkLuxe';
-import { ModernHeritageTheme } from '@/components/themes/ModernHeritage';
+
+const DarkLuxeTheme = dynamic(
+  () => import('@/components/themes/DarkLuxe').then((mod) => mod.DarkLuxeTheme),
+  {
+    loading: () => (
+      <div className="min-h-screen flex items-center justify-center bg-[#0D0C0B] text-[#D4AF37] font-serif italic text-sm">
+        Memuat Tema Dark Luxe...
+      </div>
+    ),
+  }
+);
+
+const ModernHeritageTheme = dynamic(
+  () => import('@/components/themes/ModernHeritage').then((mod) => mod.ModernHeritageTheme),
+  {
+    loading: () => (
+      <div className="min-h-screen flex items-center justify-center bg-[#F4EFEA] text-[#8E5B52] font-serif italic text-sm">
+        Memuat Tema Modern Heritage...
+      </div>
+    ),
+  }
+);
+
+const PortfolioCommandBar = dynamic(
+  () => import('@/components/shared/PortfolioCommandBar').then((mod) => mod.PortfolioCommandBar),
+  { ssr: false }
+);
 
 interface InvitationClientShellProps {
   initialGuestName?: string;
@@ -45,7 +70,6 @@ export function InvitationClientShell({
   });
   const [isGateLocked, setIsGateLocked] = useState<boolean>(true);
   const [isMobileFrame, setIsMobileFrame] = useState<boolean>(false);
-  const [isRealMobileDevice, setIsRealMobileDevice] = useState<boolean>(false);
   const [rsvpResetKey, setRsvpResetKey] = useState<number>(0);
 
   const mobileScrollContainerRef = useRef<HTMLDivElement | null>(null);
@@ -54,25 +78,17 @@ export function InvitationClientShell({
     setIsLiveMode(urlModeLive);
   }, [urlModeLive]);
 
-  // Detect real mobile viewport (< 768px) with requestAnimationFrame to prevent layout thrashing
+  // Turn off desktop simulated phone frame if screen is resized below 768px
   useEffect(() => {
-    let rafId: number | null = null;
-    const checkViewportWidth = () => {
-      if (rafId !== null) cancelAnimationFrame(rafId);
-      rafId = requestAnimationFrame(() => {
-        const mobile = window.innerWidth < 768;
-        setIsRealMobileDevice(mobile);
-        if (mobile) {
-          setIsMobileFrame(false);
-        }
-      });
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setIsMobileFrame((prev) => (prev ? false : prev));
+      }
     };
 
-    checkViewportWidth();
-    window.addEventListener('resize', checkViewportWidth, { passive: true });
+    window.addEventListener('resize', handleResize, { passive: true });
     return () => {
-      if (rafId !== null) cancelAnimationFrame(rafId);
-      window.removeEventListener('resize', checkViewportWidth);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
 
@@ -178,9 +194,9 @@ export function InvitationClientShell({
   const coupleTitle = `${portfolioWeddingData.couple.groom.nickname} & ${portfolioWeddingData.couple.bride.nickname}`;
   const formattedEventDate = formatDotDate(portfolioWeddingData.events.akad.dateISO);
 
-  // On real mobile devices (< 768px), never render the fake phone bezel mockup
-  const effectiveMobileFrame = !isRealMobileDevice && !isLiveMode && isMobileFrame;
-  const viewMode = effectiveMobileFrame || isRealMobileDevice ? 'mobile' : 'desktop';
+  // Simulated smartphone frame on desktop when toggled via command bar
+  const effectiveMobileFrame = !isLiveMode && isMobileFrame;
+  const viewMode = effectiveMobileFrame ? 'mobile' : 'desktop';
   const showCommandBar = portfolioWeddingData.isPortfolioDemo && !isLiveMode;
 
   return (

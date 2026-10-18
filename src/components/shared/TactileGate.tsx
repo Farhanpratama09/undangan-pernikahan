@@ -28,16 +28,20 @@ export function TactileGate({
   useEffect(() => {
     if (typeof document === 'undefined') return;
     if (isLocked && !isMobileFrame) {
-      document.body.style.overflow = 'hidden';
-      document.body.style.touchAction = 'none';
+      if (document.body.style.overflow !== 'hidden') {
+        document.body.style.overflow = 'hidden';
+      }
+      if (document.body.style.touchAction !== 'none') {
+        document.body.style.touchAction = 'none';
+      }
     } else {
-      document.body.style.overflow = '';
-      document.body.style.touchAction = '';
+      if (document.body.style.overflow) document.body.style.overflow = '';
+      if (document.body.style.touchAction) document.body.style.touchAction = '';
     }
 
     return () => {
-      document.body.style.overflow = '';
-      document.body.style.touchAction = '';
+      if (document.body.style.overflow) document.body.style.overflow = '';
+      if (document.body.style.touchAction) document.body.style.touchAction = '';
     };
   }, [isLocked, isMobileFrame]);
 

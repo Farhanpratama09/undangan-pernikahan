@@ -108,7 +108,7 @@ export function ModernHeritageTheme({
           <div>
             <h1
               className={`font-script text-[#8E5B52] ${
-                isMobile ? 'text-5xl' : 'text-6xl sm:text-7xl'
+                isMobile ? 'text-5xl' : 'text-5xl sm:text-6xl md:text-7xl'
               } leading-tight`}
             >
               {data.couple.groom.nickname} &amp; {data.couple.bride.nickname}

@@ -66,21 +66,21 @@ export function DarkLuxeTheme({
           <div className="py-2">
             <h1
               className={`font-serif tracking-[0.14em] uppercase font-light text-[#F2ECE4] ${
-                isMobile ? 'text-4xl' : 'text-5xl sm:text-7xl'
+                isMobile ? 'text-4xl' : 'text-4xl sm:text-6xl md:text-7xl'
               }`}
             >
               {data.couple.groom.nickname}
             </h1>
             <span
               className={`font-script text-[#D4AF37] block -my-2 sm:-my-3 ${
-                isMobile ? 'text-4xl' : 'text-5xl sm:text-6xl'
+                isMobile ? 'text-4xl' : 'text-4xl sm:text-5xl md:text-6xl'
               }`}
             >
               and
             </span>
             <h1
               className={`font-serif tracking-[0.14em] uppercase font-light text-[#F2ECE4] ${
-                isMobile ? 'text-4xl' : 'text-5xl sm:text-7xl'
+                isMobile ? 'text-4xl' : 'text-4xl sm:text-6xl md:text-7xl'
               }`}
             >
               {data.couple.bride.nickname}

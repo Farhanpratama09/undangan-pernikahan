@@ -68,7 +68,7 @@ export function EditorialMinimalistTheme({
           {/* Signature Script Names */}
           <h1
             className={`font-script text-[#231C18] ${
-              isMobile ? 'text-5xl' : 'text-6xl sm:text-7xl md:text-8xl'
+              isMobile ? 'text-5xl' : 'text-5xl sm:text-7xl md:text-8xl'
             } leading-none mb-2 relative z-10`}
           >
             {data.couple.groom.nickname}{' '}
@@ -100,13 +100,13 @@ export function EditorialMinimalistTheme({
           {/* Double-Bordered Date Badge & Guest Greeting Card */}
           <div
             className={`grid ${
-              isMobile ? 'grid-cols-1 gap-5' : 'grid-cols-1 md:grid-cols-12 gap-6'
+              isMobile ? 'grid-cols-1 gap-5' : 'grid-cols-1 md:grid-cols-12 gap-5 md:gap-6'
             } items-center text-left bg-[#FAF7F0] border border-[#E2D9C8] rounded-2xl p-5 sm:p-7`}
           >
             {/* Double-framed Date Badge */}
             <div
               className={`${
-                isMobile ? 'col-span-1' : 'md:col-span-5'
+                isMobile ? 'col-span-1' : 'col-span-1 md:col-span-5'
               } p-1 border border-[#6F4E26]/60 rounded-xl bg-white text-center`}
             >
               <div className="py-4 px-3 border border-[#E2D9C8] rounded-lg">
@@ -125,7 +125,7 @@ export function EditorialMinimalistTheme({
             {/* Guest Honor Box + Quick RSVP Button */}
             <div
               className={`${
-                isMobile ? 'col-span-1 text-center' : 'md:col-span-7 md:pl-2'
+                isMobile ? 'col-span-1 text-center' : 'col-span-1 text-center md:text-left md:col-span-7 md:pl-2'
               } space-y-3`}
             >
               <div>
@@ -293,7 +293,7 @@ export function EditorialMinimalistTheme({
           </p>
           <div
             className={`grid ${
-              isMobile ? 'grid-cols-2 gap-3' : 'grid-cols-4 gap-4'
+              isMobile ? 'grid-cols-2 gap-3' : 'grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4'
             } text-center`}
           >
             {[
@@ -308,7 +308,7 @@ export function EditorialMinimalistTheme({
               >
                 <span
                   className={`font-serif ${
-                    isMobile ? 'text-3xl' : 'text-4xl sm:text-5xl'
+                    isMobile ? 'text-3xl' : 'text-3xl sm:text-4xl md:text-5xl'
                   } font-light text-[#231C18] block`}
                 >
                   {String(item.val).padStart(2, '0')}
