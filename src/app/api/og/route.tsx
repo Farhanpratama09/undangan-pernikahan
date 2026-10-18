@@ -18,7 +18,7 @@ export async function GET(request: NextRequest) {
     // Theme color dictionary strictly for Satori Flexbox
     let bg = '#F8F6F2';
     let text = '#141413';
-    let muted = '#78756F';
+    let muted = '#524F4A';
     let border = '#141413';
     let accent = '#141413';
     let badgeBg = '#FFFFFF';

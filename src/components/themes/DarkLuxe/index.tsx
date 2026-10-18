@@ -99,6 +99,7 @@ export function DarkLuxeTheme({
                 alt="Cinematic Sunset Couple"
                 fetchPriority="high"
                 decoding="async"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 800px"
                 className="w-full h-full object-cover brightness-90 contrast-110 hover:scale-105 transition-transform duration-1000"
               />
               {/* Warm sunset twilight gradient overlay */}
@@ -493,9 +494,9 @@ export function DarkLuxeTheme({
                 <span className="font-serif italic text-sm text-[#C87D55] tracking-wider block mb-1">
                   Babak 0{idx + 1} • {item.year}
                 </span>
-                <h4 className="font-serif text-xl sm:text-2xl font-normal text-[#F2ECE4] mb-2">
+                <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#F2ECE4] mb-2">
                   {item.title}
-                </h4>
+                </h3>
                 <p className="font-sans text-xs sm:text-sm text-[#A69F95] leading-relaxed">
                   {item.story}
                 </p>

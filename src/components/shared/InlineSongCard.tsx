@@ -23,7 +23,7 @@ export function InlineSongCard({
   const themeStyles = {
     editorial: {
       cardBg: 'bg-[#231C18] text-[#F6F2EA]',
-      border: 'border-[#8C6D46]/50',
+      border: 'border-[#6F4E26]/50',
       muted: 'text-[#C2B9AC]',
       accent: 'text-[#D4AF37]',
       barBg: 'bg-[#D4AF37]',
@@ -81,9 +81,9 @@ export function InlineSongCard({
               Our Song • Soundtrack
             </span>
           </div>
-          <h4 className="font-serif text-base sm:text-lg font-medium truncate">
+          <p className="font-serif text-base sm:text-lg font-medium truncate">
             {title}
-          </h4>
+          </p>
           <p className={`font-serif italic text-xs sm:text-sm ${themeStyles.muted} truncate`}>
             {artist}
           </p>

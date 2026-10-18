@@ -51,9 +51,9 @@ export function EditorialMinimalistTheme({
       {/* SECTION 00: AREONE FINE PAPER & SIGNATURE SCRIPT HERO */}
       <header className="border-b border-[#E2D9C8] pb-14 pt-8 text-center">
         {/* Top Fine Paper Masthead Bar */}
-        <div className="flex items-center justify-between border-y border-[#E2D9C8] py-2.5 mb-8 font-sans text-[10px] tracking-[0.25em] uppercase text-[#78756F]">
+        <div className="flex items-center justify-between border-y border-[#E2D9C8] py-2.5 mb-8 font-sans text-[10px] tracking-[0.25em] uppercase text-[#524F4A]">
           <span>The Wedding Edition</span>
-          <span className="font-serif italic text-xs tracking-[0.18em] text-[#8C6D46] font-semibold">
+          <span className="font-serif italic text-xs tracking-[0.18em] text-[#6F4E26] font-semibold">
             12 Desember 2026
           </span>
           <span>Jakarta, ID</span>
@@ -61,7 +61,7 @@ export function EditorialMinimalistTheme({
 
         {/* Script Signature Couple Names Over Clean Editorial Portrait Frame */}
         <div className="max-w-3xl mx-auto">
-          <p className="font-sans text-[10px] sm:text-xs tracking-[0.28em] uppercase text-[#8C6D46] mb-2">
+          <p className="font-sans text-[10px] sm:text-xs tracking-[0.28em] uppercase text-[#6F4E26] mb-2">
             Together With Their Beloved Families
           </p>
 
@@ -72,11 +72,11 @@ export function EditorialMinimalistTheme({
             } leading-none mb-2 relative z-10`}
           >
             {data.couple.groom.nickname}{' '}
-            <span className="font-serif italic text-3xl sm:text-5xl text-[#8C6D46]">&amp;</span>{' '}
+            <span className="font-serif italic text-3xl sm:text-5xl text-[#6F4E26]">&amp;</span>{' '}
             {data.couple.bride.nickname}
           </h1>
 
-          <p className="font-serif tracking-[0.18em] uppercase text-xs sm:text-sm text-[#78756F] mb-6">
+          <p className="font-serif tracking-[0.18em] uppercase text-xs sm:text-sm text-[#524F4A] mb-6">
             Invite You To Share In Their Joy
           </p>
 
@@ -88,6 +88,7 @@ export function EditorialMinimalistTheme({
                 alt="Editorial Cover Couple"
                 fetchPriority="high"
                 decoding="async"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 800px"
                 className="w-full h-full object-cover contrast-[1.03] hover:scale-105 transition-transform duration-700"
               />
             </div>
@@ -103,16 +104,16 @@ export function EditorialMinimalistTheme({
             <div
               className={`${
                 isMobile ? 'col-span-1' : 'md:col-span-5'
-              } p-1 border border-[#8C6D46]/60 rounded-xl bg-white text-center`}
+              } p-1 border border-[#6F4E26]/60 rounded-xl bg-white text-center`}
             >
               <div className="py-4 px-3 border border-[#E2D9C8] rounded-lg">
-                <span className="font-serif italic text-xs tracking-[0.15em] text-[#8C6D46] block mb-1">
+                <span className="font-serif italic text-xs tracking-[0.15em] text-[#6F4E26] block mb-1">
                   Sabtu Legi
                 </span>
                 <span className="font-serif text-xl sm:text-2xl tracking-[0.14em] uppercase font-semibold text-[#231C18] block">
                   12 Desember 2026
                 </span>
-                <span className="font-sans text-[10px] tracking-[0.16em] uppercase text-[#78756F] block mt-1.5">
+                <span className="font-sans text-[10px] tracking-[0.16em] uppercase text-[#524F4A] block mt-1.5">
                   {data.location.venueName}
                 </span>
               </div>
@@ -125,14 +126,14 @@ export function EditorialMinimalistTheme({
               } space-y-3`}
             >
               <div>
-                <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#8C6D46]">
+                <p className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#6F4E26]">
                   Kepada Yth. Bapak/Ibu/Saudara/i
                 </p>
-                <h2 className="font-serif text-2xl sm:text-3xl font-medium text-[#231C18] mt-0.5 break-words">
+                <p className="font-serif text-2xl sm:text-3xl font-medium text-[#231C18] mt-0.5 break-words">
                   {guestName}
-                </h2>
+                </p>
               </div>
-              <p className="font-sans text-xs text-[#78756F] leading-relaxed">
+              <p className="font-sans text-xs text-[#524F4A] leading-relaxed">
                 Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i
                 berkenan hadir dan memberikan doa restu.
               </p>
@@ -153,7 +154,7 @@ export function EditorialMinimalistTheme({
       {/* SECTION 01: PROFIL MEMPELAI & OUR SONG */}
       <section className="py-14 border-b border-[#E2D9C8]">
         <div className="text-center max-w-xl mx-auto mb-10">
-          <span className="font-script text-3xl sm:text-4xl text-[#8C6D46] block mb-1">
+          <span className="font-script text-3xl sm:text-4xl text-[#6F4E26] block mb-1">
             The Bride &amp; Groom
           </span>
           <h2 className="font-serif text-2xl sm:text-3xl tracking-[0.12em] uppercase font-normal text-[#231C18]">
@@ -178,7 +179,7 @@ export function EditorialMinimalistTheme({
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <span className="font-script text-3xl text-[#8C6D46] block">
+              <span className="font-script text-3xl text-[#6F4E26] block">
                 {data.couple.groom.nickname}
               </span>
               <h3
@@ -188,7 +189,7 @@ export function EditorialMinimalistTheme({
               >
                 {data.couple.groom.fullName}
               </h3>
-              <p className="font-sans text-xs sm:text-sm text-[#78756F] leading-relaxed mb-6">
+              <p className="font-sans text-xs sm:text-sm text-[#524F4A] leading-relaxed mb-6">
                 Putra tercinta dari pasangan: <br />
                 <strong className="text-[#231C18] font-medium">{data.couple.groom.fatherName}</strong>
                 <br />
@@ -200,7 +201,7 @@ export function EditorialMinimalistTheme({
               href={`https://instagram.com/${data.couple.groom.instagramHandle.replace('@', '')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-serif italic text-sm text-[#8C6D46] hover:text-[#231C18] transition"
+              className="inline-flex items-center gap-2 font-serif italic text-sm text-[#6F4E26] hover:text-[#231C18] transition"
             >
               <Instagram className="w-3.5 h-3.5" />
               <span>{data.couple.groom.instagramHandle}</span>
@@ -219,7 +220,7 @@ export function EditorialMinimalistTheme({
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <span className="font-script text-3xl text-[#8C6D46] block">
+              <span className="font-script text-3xl text-[#6F4E26] block">
                 {data.couple.bride.nickname}
               </span>
               <h3
@@ -229,7 +230,7 @@ export function EditorialMinimalistTheme({
               >
                 {data.couple.bride.fullName}
               </h3>
-              <p className="font-sans text-xs sm:text-sm text-[#78756F] leading-relaxed mb-6">
+              <p className="font-sans text-xs sm:text-sm text-[#524F4A] leading-relaxed mb-6">
                 Putri tercinta dari pasangan: <br />
                 <strong className="text-[#231C18] font-medium">{data.couple.bride.fatherName}</strong>
                 <br />
@@ -241,7 +242,7 @@ export function EditorialMinimalistTheme({
               href={`https://instagram.com/${data.couple.bride.instagramHandle.replace('@', '')}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 font-serif italic text-sm text-[#8C6D46] hover:text-[#231C18] transition"
+              className="inline-flex items-center gap-2 font-serif italic text-sm text-[#6F4E26] hover:text-[#231C18] transition"
             >
               <Instagram className="w-3.5 h-3.5" />
               <span>{data.couple.bride.instagramHandle}</span>
@@ -264,7 +265,7 @@ export function EditorialMinimalistTheme({
       {/* SECTION 02: COUNTDOWN, AKAD/RESEPSI & WAVY CALENDAR TIMELINE */}
       <section className="py-14 border-b border-[#E2D9C8]">
         <div className="text-center max-w-xl mx-auto mb-8">
-          <span className="font-script text-3xl sm:text-4xl text-[#8C6D46] block mb-1">
+          <span className="font-script text-3xl sm:text-4xl text-[#6F4E26] block mb-1">
             Counting the Moments
           </span>
           <h2 className="font-serif text-2xl sm:text-3xl tracking-[0.12em] uppercase font-normal text-[#231C18]">
@@ -278,7 +279,7 @@ export function EditorialMinimalistTheme({
             isMobile ? 'p-5' : 'p-6 sm:p-8'
           } bg-[#FAF7F0] mb-8`}
         >
-          <p className="font-serif italic text-sm sm:text-base tracking-wide text-[#8C6D46] mb-5 text-center">
+          <p className="font-serif italic text-sm sm:text-base tracking-wide text-[#6F4E26] mb-5 text-center">
             {countdown.isMounted && countdown.isEventPassed
               ? 'Acara Pernikahan Telah Berlangsung'
               : formatIndoDate(data.events.akad.dateISO)}
@@ -305,7 +306,7 @@ export function EditorialMinimalistTheme({
                 >
                   {String(item.val).padStart(2, '0')}
                 </span>
-                <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#8C6D46] mt-1 block">
+                <span className="font-sans text-[10px] tracking-[0.2em] uppercase text-[#6F4E26] mt-1 block">
                   {item.label}
                 </span>
               </div>
@@ -323,10 +324,10 @@ export function EditorialMinimalistTheme({
           <div className="rounded-2xl border border-[#E2D9C8] p-6 sm:p-8 bg-[#FAF7F0] flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-[#E2D9C8] pb-3 mb-4">
-                <span className="font-sans text-[10px] uppercase tracking-[0.22em] text-[#8C6D46]">
+                <span className="font-sans text-[10px] uppercase tracking-[0.22em] text-[#6F4E26]">
                   Sesi Pertama • Sakral
                 </span>
-                <Sparkles className="w-3.5 h-3.5 text-[#8C6D46]" />
+                <Sparkles className="w-3.5 h-3.5 text-[#6F4E26]" />
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-normal tracking-wide mb-2">
                 {data.events.akad.title}
@@ -334,7 +335,7 @@ export function EditorialMinimalistTheme({
               <p className="font-serif text-base text-[#231C18] mb-0.5">
                 {formatIndoDate(data.events.akad.dateISO)}
               </p>
-              <p className="font-serif italic text-base text-[#8C6D46] mb-4">
+              <p className="font-serif italic text-base text-[#6F4E26] mb-4">
                 Pukul{' '}
                 {formatTimeRange(
                   data.events.akad.dateISO,
@@ -342,7 +343,7 @@ export function EditorialMinimalistTheme({
                   data.events.akad.timezoneLabel
                 )}
               </p>
-              <p className="font-sans text-xs sm:text-sm text-[#78756F] leading-relaxed mb-6">
+              <p className="font-sans text-xs sm:text-sm text-[#524F4A] leading-relaxed mb-6">
                 {data.events.akad.description}
               </p>
             </div>
@@ -372,10 +373,10 @@ export function EditorialMinimalistTheme({
           <div className="rounded-2xl border border-[#E2D9C8] p-6 sm:p-8 bg-[#FAF7F0] flex flex-col justify-between">
             <div>
               <div className="flex items-center justify-between border-b border-[#E2D9C8] pb-3 mb-4">
-                <span className="font-sans text-[10px] uppercase tracking-[0.22em] text-[#8C6D46]">
+                <span className="font-sans text-[10px] uppercase tracking-[0.22em] text-[#6F4E26]">
                   Sesi Kedua • Perayaan
                 </span>
-                <Sparkles className="w-3.5 h-3.5 text-[#8C6D46]" />
+                <Sparkles className="w-3.5 h-3.5 text-[#6F4E26]" />
               </div>
               <h3 className="font-serif text-2xl sm:text-3xl font-normal tracking-wide mb-2">
                 {data.events.reception.title}
@@ -383,7 +384,7 @@ export function EditorialMinimalistTheme({
               <p className="font-serif text-base text-[#231C18] mb-0.5">
                 {formatIndoDate(data.events.reception.dateISO)}
               </p>
-              <p className="font-serif italic text-base text-[#8C6D46] mb-4">
+              <p className="font-serif italic text-base text-[#6F4E26] mb-4">
                 Pukul{' '}
                 {formatTimeRange(
                   data.events.reception.dateISO,
@@ -391,7 +392,7 @@ export function EditorialMinimalistTheme({
                   data.events.reception.timezoneLabel
                 )}
               </p>
-              <p className="font-sans text-xs sm:text-sm text-[#78756F] leading-relaxed mb-6">
+              <p className="font-sans text-xs sm:text-sm text-[#524F4A] leading-relaxed mb-6">
                 {data.events.reception.description}
               </p>
             </div>
@@ -434,7 +435,7 @@ export function EditorialMinimalistTheme({
       {/* SECTION 03: LOVE STORY */}
       <section className="py-14 border-b border-[#E2D9C8]">
         <div className="text-center max-w-xl mx-auto mb-10">
-          <span className="font-script text-3xl sm:text-4xl text-[#8C6D46] block mb-1">
+          <span className="font-script text-3xl sm:text-4xl text-[#6F4E26] block mb-1">
             Our Journey
           </span>
           <h2 className="font-serif text-2xl sm:text-3xl tracking-[0.12em] uppercase font-normal text-[#231C18]">
@@ -459,7 +460,7 @@ export function EditorialMinimalistTheme({
                     : 'col-span-1 md:col-span-3 border-r border-[#E2D9C8] pr-4'
                 }
               >
-                <span className="font-sans text-[10px] tracking-[0.2em] text-[#8C6D46] uppercase block">
+                <span className="font-sans text-[10px] tracking-[0.2em] text-[#6F4E26] uppercase block">
                   Babak 0{idx + 1}
                 </span>
                 <span className="font-serif italic text-3xl sm:text-4xl text-[#231C18]">
@@ -467,10 +468,10 @@ export function EditorialMinimalistTheme({
                 </span>
               </div>
               <div className={isMobile ? 'col-span-1' : 'col-span-1 md:col-span-9'}>
-                <h4 className="font-serif text-xl sm:text-2xl font-medium text-[#231C18] mb-1.5">
+                <h3 className="font-serif text-xl sm:text-2xl font-medium text-[#231C18] mb-1.5">
                   {item.title}
-                </h4>
-                <p className="font-sans text-xs sm:text-sm text-[#78756F] leading-relaxed">
+                </h3>
+                <p className="font-sans text-xs sm:text-sm text-[#524F4A] leading-relaxed">
                   {item.story}
                 </p>
               </div>
@@ -507,7 +508,7 @@ export function EditorialMinimalistTheme({
       {/* SECTION 06: EDITORIAL GALLERY */}
       <section className="py-14 border-b border-[#E2D9C8]">
         <div className="text-center max-w-xl mx-auto mb-10">
-          <span className="font-script text-3xl sm:text-4xl text-[#8C6D46] block mb-1">
+          <span className="font-script text-3xl sm:text-4xl text-[#6F4E26] block mb-1">
             Captured Moments
           </span>
           <h2 className="font-serif text-2xl sm:text-3xl tracking-[0.12em] uppercase font-normal text-[#231C18]">
@@ -534,7 +535,7 @@ export function EditorialMinimalistTheme({
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="pt-2.5 pb-1 px-2 flex items-center justify-between font-serif italic text-xs text-[#8C6D46]">
+              <div className="pt-2.5 pb-1 px-2 flex items-center justify-between font-serif italic text-xs text-[#6F4E26]">
                 <span>Potret 0{i + 1}</span>
                 <span>Arya &amp; Kirana</span>
               </div>
@@ -564,10 +565,10 @@ export function EditorialMinimalistTheme({
 
       {/* FOOTER */}
       <footer className="py-14 text-center space-y-2">
-        <p className="font-script text-4xl sm:text-5xl text-[#8C6D46]">
+        <p className="font-script text-4xl sm:text-5xl text-[#6F4E26]">
           {data.couple.groom.nickname} &amp; {data.couple.bride.nickname}
         </p>
-        <p className="font-sans text-[10px] sm:text-xs text-[#78756F] uppercase tracking-[0.25em]">
+        <p className="font-sans text-[10px] sm:text-xs text-[#524F4A] uppercase tracking-[0.25em]">
           Terima Kasih Atas Doa &amp; Kehadiran Anda
         </p>
       </footer>

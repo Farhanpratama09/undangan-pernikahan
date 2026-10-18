@@ -18,8 +18,8 @@ const config: Config = {
         editorial: {
           bg: '#F6F2EA',
           ink: '#231C18',
-          bronze: '#8C6D46',
-          stone: '#78756F',
+          bronze: '#6F4E26',
+          stone: '#524F4A',
           border: '#E2D9C8',
         },
         darkluxe: {

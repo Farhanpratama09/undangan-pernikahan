@@ -129,6 +129,7 @@ export function ModernHeritageTheme({
                   alt="Modern Heritage Cover"
                   fetchPriority="high"
                   decoding="async"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 800px"
                   className="w-full h-full object-cover sepia-[0.08] contrast-[1.03] hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -173,9 +174,9 @@ export function ModernHeritageTheme({
             <p className="font-sans text-[10px] uppercase tracking-[0.2em] text-[#765D53] mb-1">
               Kepada Yth. Bapak/Ibu/Saudara/i
             </p>
-            <h2 className="font-serif text-2xl text-[#2B211E] font-medium tracking-wide break-words">
+            <p className="font-serif text-2xl text-[#2B211E] font-medium tracking-wide break-words">
               {guestName}
-            </h2>
+            </p>
           </div>
         </div>
       </header>
@@ -467,9 +468,9 @@ export function ModernHeritageTheme({
                   {story.year}
                 </span>
                 <span className="h-4 w-[1px] bg-[#B08D57]" />
-                <h4 className="font-serif text-lg sm:text-xl font-medium text-[#2B211E]">
+                <h3 className="font-serif text-lg sm:text-xl font-medium text-[#2B211E]">
                   {story.title}
-                </h4>
+                </h3>
               </div>
               <p className="font-sans text-xs sm:text-sm text-[#765D53] leading-relaxed">
                 {story.story}

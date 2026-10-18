@@ -93,27 +93,27 @@ export function GuestbookModule({
     editorial: {
       sectionBg: 'bg-[#FAF7F0] border-[#E2D9C8]',
       textPrimary: 'text-[#231C18]',
-      textMuted: 'text-[#78756F]',
-      accent: 'text-[#8C6D46]',
+      textMuted: 'text-[#524F4A]',
+      accent: 'text-[#6F4E26]',
       hairline: 'border-[#E2D9C8]',
-      formCardBg: 'bg-[#231A16] text-[#F6F2EA] border-[#8C6D46]/50 shadow-xl',
+      formCardBg: 'bg-[#231A16] text-[#F6F2EA] border-[#6F4E26]/50 shadow-xl',
       formLabel: 'text-[#D6C9B8]',
       formInput:
-        'bg-[#2E231E] border-[#8C6D46]/45 text-[#F6F2EA] placeholder-[#9E8F7F] focus:border-[#D4AF37]',
+        'bg-[#2E231E] border-[#6F4E26]/45 text-[#F6F2EA] placeholder-[#9E8F7F] focus:border-[#D4AF37]',
       optActive:
         'border-[#D4AF37] bg-[#D4AF37]/20 text-[#F6F2EA] shadow-[inset_0_0_12px_rgba(212,175,55,0.2)] font-medium',
       optInactive:
-        'border-[#8C6D46]/35 bg-[#2E231E]/80 text-[#C8B9A6] hover:border-[#D4AF37]/60 hover:text-[#F6F2EA]',
-      stepperBox: 'bg-[#2E231E] border-[#8C6D46]/45 text-[#F6F2EA]',
+        'border-[#6F4E26]/35 bg-[#2E231E]/80 text-[#C8B9A6] hover:border-[#D4AF37]/60 hover:text-[#F6F2EA]',
+      stepperBox: 'bg-[#2E231E] border-[#6F4E26]/45 text-[#F6F2EA]',
       stepperBtn:
-        'bg-[#3D2F28] text-[#F6F2EA] hover:bg-[#D4AF37]/25 hover:border-[#D4AF37] border-[#8C6D46]/40',
+        'bg-[#3D2F28] text-[#F6F2EA] hover:bg-[#D4AF37]/25 hover:border-[#D4AF37] border-[#6F4E26]/40',
       buttonSubmit:
         'bg-gradient-to-r from-[#C8A464] via-[#D4AF37] to-[#B8924A] text-[#231A16] hover:brightness-105 border-[#D4AF37] font-semibold',
-      badgeHadir: 'bg-[#8C6D46]/10 text-[#6E5230] border-[#8C6D46]/25',
-      badgeTidak: 'bg-[#231C18]/5 text-[#78756F] border-[#231C18]/15',
+      badgeHadir: 'bg-[#6F4E26]/10 text-[#6F4E26] border-[#6F4E26]/25',
+      badgeTidak: 'bg-[#231C18]/5 text-[#524F4A] border-[#231C18]/15',
       badgeRagu: 'bg-[#B08D57]/15 text-[#7A5C32] border-[#B08D57]/30',
       itemCard: 'bg-white border-[#E2D9C8]',
-      quoteMark: 'text-[#8C6D46]/20',
+      quoteMark: 'text-[#6F4E26]/20',
       successIcon: 'text-[#D4AF37]',
       errorBox: 'border-red-400/50 bg-red-950/50 text-red-200',
     },
@@ -259,9 +259,9 @@ export function GuestbookModule({
                 className="p-6 rounded-2xl border border-[#D4AF37]/40 bg-white/5 text-center space-y-2"
               >
                 <CheckCircle2 className={`w-9 h-9 ${themeStyles.successIcon} mx-auto`} />
-                <h4 className="font-serif text-xl font-medium text-white">
+                <p className="font-serif text-xl font-medium text-white">
                   Terima Kasih Atas Konfirmasinya
-                </h4>
+                </p>
                 <p className="font-sans text-xs leading-relaxed text-white/80">
                   Untaian doa restu dan konfirmasi kehadiran Anda telah tersimpan rapi di buku tamu kami.
                 </p>

@@ -54,19 +54,26 @@ export function InvitationClientShell({
     setIsLiveMode(urlModeLive);
   }, [urlModeLive]);
 
-  // Detect real mobile viewport (< 768px) so we never wrap a physical phone screen inside a fake phone bezel
+  // Detect real mobile viewport (< 768px) with requestAnimationFrame to prevent layout thrashing
   useEffect(() => {
+    let rafId: number | null = null;
     const checkViewportWidth = () => {
-      const mobile = window.innerWidth < 768;
-      setIsRealMobileDevice(mobile);
-      if (mobile) {
-        setIsMobileFrame(false);
-      }
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      rafId = requestAnimationFrame(() => {
+        const mobile = window.innerWidth < 768;
+        setIsRealMobileDevice(mobile);
+        if (mobile) {
+          setIsMobileFrame(false);
+        }
+      });
     };
 
     checkViewportWidth();
-    window.addEventListener('resize', checkViewportWidth);
-    return () => window.removeEventListener('resize', checkViewportWidth);
+    window.addEventListener('resize', checkViewportWidth, { passive: true });
+    return () => {
+      if (rafId !== null) cancelAnimationFrame(rafId);
+      window.removeEventListener('resize', checkViewportWidth);
+    };
   }, []);
 
   // Track whether the user is actively editing the input to prevent URL sync loop

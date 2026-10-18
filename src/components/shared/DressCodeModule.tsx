@@ -76,8 +76,8 @@ export function DressCodeModule({
       subBoxBg: 'bg-white/80 border-[#E2D9C8]',
       border: 'border-[#E2D9C8]',
       textPrimary: 'text-[#231C18]',
-      textMuted: 'text-[#78756F]',
-      accent: 'text-[#8C6D46]',
+      textMuted: 'text-[#524F4A]',
+      accent: 'text-[#6F4E26]',
     },
     'dark-luxe': {
       cardBg: 'bg-[#141312]',

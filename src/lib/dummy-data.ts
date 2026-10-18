@@ -62,7 +62,7 @@ export const portfolioWeddingData: WeddingInvitationData = {
     artist: 'The Chamber Ensemble',
   },
   gallery: [
-    'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=75&auto=format&fit=crop', // Cover couple editorial
+    'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=75&fm=webp&auto=format&fit=crop', // Cover couple editorial
     'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop', // Ring & detail
     'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1200&auto=format&fit=crop', // Intimate stroll
     'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=1200&auto=format&fit=crop', // Editorial veil
