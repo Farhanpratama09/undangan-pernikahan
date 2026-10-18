@@ -12,7 +12,7 @@ const config: Config = {
         script: ['var(--font-script)', 'cursive'],
         serif: ['var(--font-cormorant)', 'Georgia', 'serif'],
         sans: ['var(--font-jakarta)', 'system-ui', 'sans-serif'],
-        mono: ['var(--font-mono)', 'monospace'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
       },
       colors: {
         editorial: {

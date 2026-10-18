@@ -1,13 +1,14 @@
 import type { MetadataRoute } from 'next';
+import { getSafeSiteUrl } from '@/lib/validation';
 
 export default function robots(): MetadataRoute.Robots {
-  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
+  const { origin } = getSafeSiteUrl();
 
   return {
     rules: {
       userAgent: '*',
       allow: '/',
     },
-    sitemap: `${siteUrl}/sitemap.xml`,
+    sitemap: `${origin}/sitemap.xml`,
   };
 }

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import { Cormorant_Garamond, Plus_Jakarta_Sans, Pinyon_Script } from 'next/font/google';
+import { getSafeSiteUrl } from '@/lib/validation';
 import './globals.css';
 
 const cormorant = Cormorant_Garamond({
@@ -24,8 +25,6 @@ const pinyon = Pinyon_Script({
   display: 'swap',
 });
 
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000').replace(/\/+$/, '');
-
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -33,7 +32,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: getSafeSiteUrl().url,
   applicationName: 'The Wedding of Arya & Kirana',
   authors: [{ name: 'Arya & Kirana' }],
   keywords: [

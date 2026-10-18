@@ -3,6 +3,44 @@ import { z } from 'zod';
 export const DEFAULT_GUEST_NAME = 'Farhan & Partner';
 
 /**
+ * Safely resolves and validates the site base URL for metadataBase, sitemap, and robots.
+ * Prevents TypeError: Invalid URL (ERR_INVALID_URL) during Vercel static page collection (e.g. /_not-found)
+ * when NEXT_PUBLIC_SITE_URL is missing a protocol (https://), contains quotes/spaces, or is malformed.
+ */
+export function getSafeSiteUrl(): { url: URL; origin: string } {
+  const candidates = [
+    process.env.NEXT_PUBLIC_SITE_URL,
+    process.env.VERCEL_PROJECT_PRODUCTION_URL,
+    process.env.VERCEL_URL,
+  ];
+
+  for (const raw of candidates) {
+    if (!raw || typeof raw !== 'string') continue;
+    const cleaned = raw.trim().replace(/^['"]+|['"]+$/g, '').replace(/\/+$/, '');
+    if (!cleaned || cleaned.includes(' ') || cleaned.startsWith('[')) continue;
+
+    const withProtocol = /^https?:\/\//i.test(cleaned)
+      ? cleaned
+      : cleaned.startsWith('localhost') || cleaned.startsWith('127.0.0.1')
+        ? `http://${cleaned}`
+        : `https://${cleaned}`;
+
+    try {
+      const parsed = new URL(withProtocol);
+      if (parsed.hostname && parsed.hostname.includes('.') || parsed.hostname === 'localhost') {
+        return { url: new URL(parsed.origin), origin: parsed.origin };
+      }
+    } catch {
+      // Continue to next candidate
+    }
+  }
+
+  const fallback = new URL('http://localhost:3000');
+  return { url: fallback, origin: fallback.origin };
+}
+
+
+/**
  * Strips HTML tags without cutting off benign text like "<3".
  */
 export function stripHtmlTags(input: string): string {
