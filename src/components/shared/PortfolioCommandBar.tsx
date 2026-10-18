@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
   Smartphone,
   Monitor,
@@ -93,65 +92,57 @@ export function PortfolioCommandBar({
           MOBILE VIEW (< 768px): COMPACT 1-ROW CAPSULE + DRAWER
          ========================================================= */}
       <div className="md:hidden">
-        <AnimatePresence initial={false}>
-          {isMobileDrawerOpen && (
-            <motion.div
-              initial={{ height: 0, opacity: 0 }}
-              animate={{ height: 'auto', opacity: 1 }}
-              exit={{ height: 0, opacity: 0 }}
-              transition={{ duration: 0.22 }}
-              className="overflow-hidden border-b border-white/10 mb-2.5 pb-3 pt-1"
-            >
-              <div className="space-y-2.5">
-                {/* Clean Guest Name Input inside Mobile Drawer */}
-                <div className="relative w-full h-9 rounded-full bg-white/10 border border-white/15 overflow-hidden flex items-center px-3">
-                  <User className="w-3.5 h-3.5 text-[#D4AF37] shrink-0 pointer-events-none" />
-                  <input
-                    type="text"
-                    value={guestName}
-                    onChange={handleNameInput}
-                    placeholder="Ketik nama tamu undangan..."
-                    maxLength={35}
-                    aria-label="Simulasi Nama Tamu"
-                    className="w-full h-full pl-2.5 pr-2 text-xs font-sans font-medium tracking-wide bg-transparent text-white placeholder-white/40 focus:outline-none"
-                  />
-                </div>
+        {isMobileDrawerOpen && (
+          <div className="overflow-hidden border-b border-white/10 mb-2.5 pb-3 pt-1 animate-fade-in">
+            <div className="space-y-2.5">
+              {/* Clean Guest Name Input inside Mobile Drawer */}
+              <div className="relative w-full h-9 rounded-full bg-white/10 border border-white/15 overflow-hidden flex items-center px-3">
+                <User className="w-3.5 h-3.5 text-[#D4AF37] shrink-0 pointer-events-none" />
+                <input
+                  type="text"
+                  value={guestName}
+                  onChange={handleNameInput}
+                  placeholder="Ketik nama tamu undangan..."
+                  maxLength={35}
+                  aria-label="Simulasi Nama Tamu"
+                  className="w-full h-full pl-2.5 pr-2 text-xs font-sans font-medium tracking-wide bg-transparent text-white placeholder-white/40 focus:outline-none"
+                />
+              </div>
 
-                {/* Action Row: Kunci Amplop + Reset RSVP + Live Mode */}
-                <div className="grid grid-cols-3 gap-2">
+              {/* Action Row: Kunci Amplop + Reset RSVP + Live Mode */}
+              <div className="grid grid-cols-3 gap-2">
+                <button
+                  type="button"
+                  onClick={onRelockGate}
+                  className="h-8 rounded-full border border-white/15 bg-white/5 hover:bg-white/15 text-[11px] font-sans font-medium tracking-wide flex items-center justify-center gap-1.5 transition cursor-pointer"
+                >
+                  <Lock className="w-3 h-3 text-[#D4AF37]" />
+                  <span>Kunci Amplop</span>
+                </button>
+
+                {onResetRsvpLimit && (
                   <button
                     type="button"
-                    onClick={onRelockGate}
+                    onClick={handleResetRsvp}
                     className="h-8 rounded-full border border-white/15 bg-white/5 hover:bg-white/15 text-[11px] font-sans font-medium tracking-wide flex items-center justify-center gap-1.5 transition cursor-pointer"
                   >
-                    <Lock className="w-3 h-3 text-[#D4AF37]" />
-                    <span>Kunci Amplop</span>
+                    <RotateCcw className="w-3 h-3 text-[#D4AF37]" />
+                    <span>{resetRsvpNotice ? 'Tereset!' : 'Reset RSVP'}</span>
                   </button>
+                )}
 
-                  {onResetRsvpLimit && (
-                    <button
-                      type="button"
-                      onClick={handleResetRsvp}
-                      className="h-8 rounded-full border border-white/15 bg-white/5 hover:bg-white/15 text-[11px] font-sans font-medium tracking-wide flex items-center justify-center gap-1.5 transition cursor-pointer"
-                    >
-                      <RotateCcw className="w-3 h-3 text-[#D4AF37]" />
-                      <span>{resetRsvpNotice ? 'Tereset!' : 'Reset RSVP'}</span>
-                    </button>
-                  )}
-
-                  <button
-                    type="button"
-                    onClick={handleLiveMode}
-                    className="h-8 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/15 hover:bg-[#D4AF37]/25 text-[11px] font-sans font-medium tracking-wide text-[#E5C667] flex items-center justify-center gap-1.5 transition cursor-pointer"
-                  >
-                    <Eye className="w-3 h-3" />
-                    <span>Live</span>
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  onClick={handleLiveMode}
+                  className="h-8 rounded-full border border-[#D4AF37]/40 bg-[#D4AF37]/15 hover:bg-[#D4AF37]/25 text-[11px] font-sans font-medium tracking-wide text-[#E5C667] flex items-center justify-center gap-1.5 transition cursor-pointer"
+                >
+                  <Eye className="w-3 h-3" />
+                  <span>Live</span>
+                </button>
               </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+          </div>
+        )}
 
         {/* Default Compact Mobile Capsule Row: Theme Switcher + Audio + Opsi ^ */}
         <div className="flex items-center justify-between gap-2">

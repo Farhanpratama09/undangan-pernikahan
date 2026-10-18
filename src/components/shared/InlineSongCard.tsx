@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Play, Pause, Music2 } from 'lucide-react';
 import { ThemeId } from '@/types/invitation';
 
@@ -54,14 +53,10 @@ export function InlineSongCard({
       {/* Left: Spinning Vinyl Record Disc */}
       <div className="flex items-center gap-3.5 sm:gap-4 min-w-0">
         <div className="relative w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-neutral-950 via-neutral-800 to-neutral-900 border-2 border-[#D4AF37]/40 shadow-inner flex items-center justify-center shrink-0">
-          <motion.div
-            animate={isPlaying ? { rotate: 360 } : { rotate: 0 }}
-            transition={
-              isPlaying
-                ? { duration: 6, repeat: Infinity, ease: 'linear' }
-                : { duration: 0.4 }
-            }
-            className="w-full h-full rounded-full flex items-center justify-center relative"
+          <div
+            className={`w-full h-full rounded-full flex items-center justify-center relative ${
+              isPlaying ? 'animate-spin-slow' : ''
+            }`}
           >
             {/* Vinyl grooves */}
             <div className="absolute inset-2 rounded-full border border-white/10" />
@@ -70,7 +65,7 @@ export function InlineSongCard({
             <div className="w-5 h-5 rounded-full bg-[#C87D55] border border-[#D4AF37] flex items-center justify-center">
               <div className="w-1.5 h-1.5 rounded-full bg-black" />
             </div>
-          </motion.div>
+          </div>
         </div>
 
         {/* Song Info & Equalizer Bars */}
@@ -93,26 +88,13 @@ export function InlineSongCard({
       {/* Right: Animated Soundwave Equalizer & Play/Pause Button */}
       <div className="flex items-center gap-3 shrink-0">
         <div className="hidden sm:flex items-end gap-0.5 h-5 px-1" aria-hidden="true">
-          {[0.5, 0.9, 0.6, 1.0, 0.7].map((heightRatio, idx) => (
-            <motion.span
+          {[0.5, 0.9, 0.6, 1.0, 0.7].map((_heightRatio, idx) => (
+            <span
               key={idx}
-              animate={
-                isPlaying
-                  ? {
-                      scaleY: [0.3, heightRatio, 0.4, 0.95, 0.35],
-                    }
-                  : { scaleY: 0.25 }
-              }
-              transition={
-                isPlaying
-                  ? {
-                      duration: 0.9 + idx * 0.12,
-                      repeat: Infinity,
-                      ease: 'easeInOut',
-                    }
-                  : { duration: 0.2 }
-              }
-              className={`w-1 h-4 origin-bottom rounded-full ${themeStyles.barBg}`}
+              style={isPlaying ? { animationDelay: `${idx * 120}ms` } : undefined}
+              className={`w-1 h-4 origin-bottom rounded-full transition-transform duration-200 ${
+                themeStyles.barBg
+              } ${isPlaying ? 'animate-soundwave' : 'scale-y-[0.25]'}`}
             />
           ))}
         </div>

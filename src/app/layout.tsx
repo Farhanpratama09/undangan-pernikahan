@@ -62,14 +62,6 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://images.unsplash.com" />
-        <link
-          rel="preload"
-          as="image"
-          href="https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=75&fm=webp&auto=format&fit=crop"
-          fetchPriority="high"
-          imageSrcSet="https://images.unsplash.com/photo-1519741497674-611481863552?w=480&q=75&fm=webp&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1519741497674-611481863552?w=640&q=75&fm=webp&auto=format&fit=crop 640w, https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=75&fm=webp&auto=format&fit=crop 800w"
-          imageSizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 800px"
-        />
       </head>
       <body className="min-h-screen bg-[#F6F2EA] text-[#231C18] font-sans antialiased">
         {children}

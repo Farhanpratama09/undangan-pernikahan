@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
   MessageSquare,
   Send,
@@ -253,11 +252,7 @@ export function GuestbookModule({
             </div>
 
             {hasSubmitted || formSuccess ? (
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                className="p-6 rounded-2xl border border-[#D4AF37]/40 bg-white/5 text-center space-y-2"
-              >
+              <div className="p-6 rounded-2xl border border-[#D4AF37]/40 bg-white/5 text-center space-y-2 animate-fade-in">
                 <CheckCircle2 className={`w-9 h-9 ${themeStyles.successIcon} mx-auto`} />
                 <p className="font-serif text-xl font-medium text-white">
                   Terima Kasih Atas Konfirmasinya
@@ -265,7 +260,7 @@ export function GuestbookModule({
                 <p className="font-sans text-xs leading-relaxed text-white/80">
                   Untaian doa restu dan konfirmasi kehadiran Anda telah tersimpan rapi di buku tamu kami.
                 </p>
-              </motion.div>
+              </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
                 {formError && (
@@ -458,40 +453,35 @@ export function GuestbookModule({
 
             {/* Clean Scrollable Feed with Subtle Scrollbar & Decorative Serif Quote Mark */}
             <div className="space-y-3.5 max-h-[500px] overflow-y-auto pr-1.5 custom-scrollbar">
-              <AnimatePresence initial={false}>
-                {entries.map((entry) => (
-                  <motion.div
-                    key={entry.id}
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0 }}
-                    className={`relative p-5 rounded-2xl border ${themeStyles.itemCard} shadow-sm overflow-hidden`}
+              {entries.map((entry) => (
+                <div
+                  key={entry.id}
+                  className={`relative p-5 rounded-2xl border ${themeStyles.itemCard} shadow-sm overflow-hidden animate-fade-in`}
+                >
+                  {/* Decorative Editorial Serif Quote Mark */}
+                  <span
+                    aria-hidden="true"
+                    className={`font-serif text-5xl leading-none absolute top-2 right-4 select-none pointer-events-none ${themeStyles.quoteMark}`}
                   >
-                    {/* Decorative Editorial Serif Quote Mark */}
-                    <span
-                      aria-hidden="true"
-                      className={`font-serif text-5xl leading-none absolute top-2 right-4 select-none pointer-events-none ${themeStyles.quoteMark}`}
-                    >
-                      &ldquo;
-                    </span>
+                    &ldquo;
+                  </span>
 
-                    <div className="relative z-10 flex flex-wrap items-start justify-between gap-2 mb-2.5">
-                      <div>
-                        <h4 className={`font-serif text-base font-semibold ${themeStyles.textPrimary}`}>
-                          {entry.guestName}
-                        </h4>
-                        <span className={`font-serif italic text-xs ${themeStyles.textMuted}`}>
-                          {formatEntryDate(entry.createdAt)}
-                        </span>
-                      </div>
-                      <div>{renderAttendanceBadge(entry.attendance, entry.pax)}</div>
+                  <div className="relative z-10 flex flex-wrap items-start justify-between gap-2 mb-2.5">
+                    <div>
+                      <h4 className={`font-serif text-base font-semibold ${themeStyles.textPrimary}`}>
+                        {entry.guestName}
+                      </h4>
+                      <span className={`font-serif italic text-xs ${themeStyles.textMuted}`}>
+                        {formatEntryDate(entry.createdAt)}
+                      </span>
                     </div>
-                    <p className={`relative z-10 font-sans text-xs sm:text-sm leading-relaxed ${themeStyles.textPrimary}`}>
-                      {entry.message}
-                    </p>
-                  </motion.div>
-                ))}
-              </AnimatePresence>
+                    <div>{renderAttendanceBadge(entry.attendance, entry.pax)}</div>
+                  </div>
+                  <p className={`relative z-10 font-sans text-xs sm:text-sm leading-relaxed ${themeStyles.textPrimary}`}>
+                    {entry.message}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </div>

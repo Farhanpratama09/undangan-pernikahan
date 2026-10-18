@@ -66,3 +66,59 @@
   scrollbar-width: none;
 }
 
+/* GPU-accelerated compositor animations */
+@keyframes gentleFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(3px);
+  }
+}
+
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes soundwavePulse {
+  0%, 100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(0.95);
+  }
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-gentle-float {
+  animation: gentleFloat 2s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 6s linear infinite;
+}
+
+.animate-soundwave {
+  animation: soundwavePulse 0.9s ease-in-out infinite;
+}
+
+.animate-fade-in {
+  animation: fadeInSlide 0.25s ease-out forwards;
+}
+
+

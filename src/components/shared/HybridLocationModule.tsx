@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import {
   MapPin,
   Navigation,
@@ -336,99 +335,93 @@ export function HybridLocationModule({
       </div>
 
       {/* Full-Screen Zoomable Lightbox Modal */}
-      <AnimatePresence>
-        {isLightboxOpen && (
-          <motion.div
-            role="dialog"
-            aria-modal="true"
-            aria-label="Denah Arsitektur Lokasi Acara"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className={`fixed inset-0 z-[70] flex flex-col p-4 sm:p-6 backdrop-blur-md ${themeStyles.modalBg}`}
+      {isLightboxOpen && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Denah Arsitektur Lokasi Acara"
+          className={`fixed inset-0 z-[70] flex flex-col p-4 sm:p-6 backdrop-blur-md animate-fade-in ${themeStyles.modalBg}`}
+        >
+          {/* Lightbox Toolbar */}
+          <div
+            className={`flex flex-wrap items-center justify-between gap-2 pb-4 border-b ${themeStyles.hairline}`}
           >
-            {/* Lightbox Toolbar */}
-            <div
-              className={`flex flex-wrap items-center justify-between gap-2 pb-4 border-b ${themeStyles.hairline}`}
-            >
-              <div className="flex items-center gap-2">
-                <p className={`font-serif text-base tracking-wide ${themeStyles.modalText}`}>
-                  Denah Lokasi Acara ({Math.round(zoomScale * 100)}%)
-                </p>
-              </div>
-
-              <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={handleZoomIn}
-                  title="Perbesar"
-                  aria-label="Perbesar Denah"
-                  className={`p-2 rounded-full border transition cursor-pointer ${themeStyles.modalBtn}`}
-                >
-                  <ZoomIn className="w-4 h-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={handleZoomOut}
-                  title="Perkecil"
-                  aria-label="Perkecil Denah"
-                  className={`p-2 rounded-full border transition cursor-pointer ${themeStyles.modalBtn}`}
-                >
-                  <ZoomOut className="w-4 h-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={handleResetZoom}
-                  title="Reset Zoom"
-                  aria-label="Reset Ukuran Denah"
-                  className={`p-2 rounded-full border transition cursor-pointer ${themeStyles.modalBtn}`}
-                >
-                  <RotateCcw className="w-4 h-4" />
-                </button>
-
-                <a
-                  href={visualMapAssetUrl}
-                  download="denah-lokasi-wedding.svg"
-                  title="Unduh Berkas Denah"
-                  className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full border text-xs font-sans font-medium tracking-wider uppercase transition ${themeStyles.buttonPrimary}`}
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  <span className="hidden sm:inline">Unduh Denah</span>
-                </a>
-
-                <button
-                  type="button"
-                  onClick={() => setIsLightboxOpen(false)}
-                  title="Tutup (Esc)"
-                  aria-label="Tutup Lightbox"
-                  className={`p-2 rounded-full border transition ml-1 cursor-pointer ${themeStyles.modalBtn}`}
-                >
-                  <X className="w-4 h-4" />
-                </button>
-              </div>
+            <div className="flex items-center gap-2">
+              <p className={`font-serif text-base tracking-wide ${themeStyles.modalText}`}>
+                Denah Lokasi Acara ({Math.round(zoomScale * 100)}%)
+              </p>
             </div>
 
-            {/* Interactive Image Viewport */}
-            <div className="flex-1 w-full overflow-auto flex items-center justify-center p-4">
-              <motion.div
-                animate={{ scale: zoomScale }}
-                transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                className="max-w-4xl w-full flex items-center justify-center cursor-grab active:cursor-grabbing"
+            <div className="flex items-center gap-2">
+              <button
+                type="button"
+                onClick={handleZoomIn}
+                title="Perbesar"
+                aria-label="Perbesar Denah"
+                className={`p-2 rounded-full border transition cursor-pointer ${themeStyles.modalBtn}`}
               >
-                <img
-                  src={visualMapAssetUrl}
-                  alt="Denah Lokasi Full"
-                  width={1200}
-                  height={675}
-                  loading="lazy"
-                  decoding="async"
-                  className="max-h-[80vh] w-auto object-contain border border-black/10 shadow-xl bg-white"
-                />
-              </motion.div>
+                <ZoomIn className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={handleZoomOut}
+                title="Perkecil"
+                aria-label="Perkecil Denah"
+                className={`p-2 rounded-full border transition cursor-pointer ${themeStyles.modalBtn}`}
+              >
+                <ZoomOut className="w-4 h-4" />
+              </button>
+              <button
+                type="button"
+                onClick={handleResetZoom}
+                title="Reset Zoom"
+                aria-label="Reset Ukuran Denah"
+                className={`p-2 rounded-full border transition cursor-pointer ${themeStyles.modalBtn}`}
+              >
+                <RotateCcw className="w-4 h-4" />
+              </button>
+
+              <a
+                href={visualMapAssetUrl}
+                download="denah-lokasi-wedding.svg"
+                title="Unduh Berkas Denah"
+                className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-full border text-xs font-sans font-medium tracking-wider uppercase transition ${themeStyles.buttonPrimary}`}
+              >
+                <Download className="w-3.5 h-3.5" />
+                <span className="hidden sm:inline">Unduh Denah</span>
+              </a>
+
+              <button
+                type="button"
+                onClick={() => setIsLightboxOpen(false)}
+                title="Tutup (Esc)"
+                aria-label="Tutup Lightbox"
+                className={`p-2 rounded-full border transition ml-1 cursor-pointer ${themeStyles.modalBtn}`}
+              >
+                <X className="w-4 h-4" />
+              </button>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </div>
+
+          {/* Interactive Image Viewport */}
+          <div className="flex-1 w-full overflow-auto flex items-center justify-center p-4">
+            <div
+              style={{ transform: `scale(${zoomScale})` }}
+              className="max-w-4xl w-full flex items-center justify-center cursor-grab active:cursor-grabbing transition-transform duration-200 ease-out"
+            >
+              <img
+                src={visualMapAssetUrl}
+                alt="Denah Lokasi Full"
+                width={1200}
+                height={675}
+                loading="lazy"
+                decoding="async"
+                className="max-h-[80vh] w-auto object-contain border border-black/10 shadow-xl bg-white"
+              />
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

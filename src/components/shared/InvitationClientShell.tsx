@@ -16,11 +16,26 @@ import {
 } from '@/lib/validation';
 import { useAudioController } from '@/hooks/useAudioController';
 import { TactileGate } from '@/components/shared/TactileGate';
-import { EditorialMinimalistTheme } from '@/components/themes/EditorialMinimalist';
+
+const EditorialMinimalistTheme = dynamic(
+  () =>
+    import('@/components/themes/EditorialMinimalist').then(
+      (mod) => mod.EditorialMinimalistTheme
+    ),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="min-h-screen flex items-center justify-center bg-[#F6F2EA] text-[#6F4E26] font-serif italic text-sm">
+        Memuat Undangan...
+      </div>
+    ),
+  }
+);
 
 const DarkLuxeTheme = dynamic(
   () => import('@/components/themes/DarkLuxe').then((mod) => mod.DarkLuxeTheme),
   {
+    ssr: false,
     loading: () => (
       <div className="min-h-screen flex items-center justify-center bg-[#0D0C0B] text-[#D4AF37] font-serif italic text-sm">
         Memuat Tema Dark Luxe...
@@ -32,6 +47,7 @@ const DarkLuxeTheme = dynamic(
 const ModernHeritageTheme = dynamic(
   () => import('@/components/themes/ModernHeritage').then((mod) => mod.ModernHeritageTheme),
   {
+    ssr: false,
     loading: () => (
       <div className="min-h-screen flex items-center justify-center bg-[#F4EFEA] text-[#8E5B52] font-serif italic text-sm">
         Memuat Tema Modern Heritage...
@@ -160,6 +176,17 @@ export function InvitationClientShell({
     toggleMute,
   } = useAudioController(portfolioWeddingData.audio.srcUrl);
 
+  // Preload active theme chunk on first user interaction (touch/mouse) so it is instant on click
+  const preloadActiveTheme = useCallback(() => {
+    if (currentTheme === 'editorial') {
+      import('@/components/themes/EditorialMinimalist');
+    } else if (currentTheme === 'dark-luxe') {
+      import('@/components/themes/DarkLuxe');
+    } else {
+      import('@/components/themes/ModernHeritage');
+    }
+  }, [currentTheme]);
+
   // Open gate handler ("Buka Undangan" button)
   const handleOpenInvitation = useCallback(async () => {
     setIsGateLocked(false);
@@ -201,6 +228,9 @@ export function InvitationClientShell({
 
   return (
     <div
+      onMouseEnter={preloadActiveTheme}
+      onTouchStart={preloadActiveTheme}
+      onPointerDown={preloadActiveTheme}
       className={`min-h-screen transition-colors duration-500 ${themeBackground} relative selection:bg-current selection:text-white`}
     >
       {/* 1. Tactile Gate when in Full Viewport Mode (Desktop or Real Mobile Device) */}
@@ -319,12 +349,12 @@ export function InvitationClientShell({
             />
           )}
 
-          {/* 4. Active Theme Presentation */}
+          {/* 4. Active Theme Presentation (Mounted once Gate is unlocked so initial LCP & TBT are instantaneous) */}
           <main
             key={`${currentTheme}-${rsvpResetKey}`}
             className={showCommandBar && !effectiveMobileFrame ? 'pb-32' : 'pb-12'}
           >
-            {currentTheme === 'editorial' && (
+            {!isGateLocked && currentTheme === 'editorial' && (
               <EditorialMinimalistTheme
                 data={portfolioWeddingData}
                 guestName={displayGuestName}
@@ -335,7 +365,7 @@ export function InvitationClientShell({
               />
             )}
 
-            {currentTheme === 'dark-luxe' && (
+            {!isGateLocked && currentTheme === 'dark-luxe' && (
               <DarkLuxeTheme
                 data={portfolioWeddingData}
                 guestName={displayGuestName}
@@ -346,7 +376,7 @@ export function InvitationClientShell({
               />
             )}
 
-            {currentTheme === 'heritage' && (
+            {!isGateLocked && currentTheme === 'heritage' && (
               <ModernHeritageTheme
                 data={portfolioWeddingData}
                 guestName={displayGuestName}

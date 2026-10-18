@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 import { CreditCard, Copy, Check, QrCode, ChevronDown, Gift } from 'lucide-react';
 import { ThemeId, BankAccount } from '@/types/invitation';
 import { useClipboard } from '@/hooks/useClipboard';
@@ -173,34 +172,28 @@ export function DigitalEnvelopeModule({
                 </div>
 
                 {/* QR Code Reveal Dropdown */}
-                <AnimatePresence>
-                  {acc.qrImageUrl && isQrExpanded && (
-                    <motion.div
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: 'auto' }}
-                      exit={{ opacity: 0, height: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className={`overflow-hidden mt-4 pt-3 border-t ${themeStyles.hairline}`}
+                {acc.qrImageUrl && isQrExpanded && (
+                  <div
+                    className={`overflow-hidden mt-4 pt-3 border-t animate-fade-in ${themeStyles.hairline}`}
+                  >
+                    <div
+                      className={`p-3 rounded-xl border ${themeStyles.qrContainer} flex flex-col items-center text-center`}
                     >
-                      <div
-                        className={`p-3 rounded-xl border ${themeStyles.qrContainer} flex flex-col items-center text-center`}
-                      >
-                        <img
-                          src={acc.qrImageUrl}
-                          alt={`QRIS ${acc.bankName}`}
-                          width={192}
-                          height={192}
-                          loading="lazy"
-                          decoding="async"
-                          className="w-48 h-auto object-contain mb-2"
-                        />
-                        <p className="font-sans text-[11px] tracking-wide text-neutral-600">
-                          Pindai menggunakan aplikasi m-Banking atau e-Wallet
-                        </p>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
+                      <img
+                        src={acc.qrImageUrl}
+                        alt={`QRIS ${acc.bankName}`}
+                        width={192}
+                        height={192}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-48 h-auto object-contain mb-2"
+                      />
+                      <p className="font-sans text-[11px] tracking-wide text-neutral-600">
+                        Pindai menggunakan aplikasi m-Banking atau e-Wallet
+                      </p>
+                    </div>
+                  </div>
+                )}
               </div>
             );
           })}

@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Sparkles, Check } from 'lucide-react';
 import { ThemeId, DressCodeInfo } from '@/types/invitation';
 
@@ -167,15 +166,13 @@ export function DressCodeModule({
             {dressCode.colors.map((swatch, idx) => {
               const isSelected = idx === selectedColorIndex;
               return (
-                <motion.button
+                <button
                   key={swatch.hex}
                   type="button"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
                   onClick={() => setSelectedColorIndex(idx)}
                   aria-label={`Pilih warna ${swatch.name}`}
                   aria-pressed={isSelected}
-                  className={`relative w-11 h-11 sm:w-12 sm:h-12 rounded-full cursor-pointer transition-shadow flex items-center justify-center ${
+                  className={`relative w-11 h-11 sm:w-12 sm:h-12 rounded-full cursor-pointer transition-all duration-200 hover:scale-110 active:scale-95 flex items-center justify-center ${
                     isSelected
                       ? 'ring-2 ring-offset-2 ring-[#D4AF37] scale-110 shadow-lg'
                       : 'opacity-90 hover:opacity-100 shadow-sm'
@@ -190,18 +187,16 @@ export function DressCodeModule({
                       }`}
                     />
                   )}
-                </motion.button>
+                </button>
               );
             })}
           </div>
 
           {/* Active Swatch Pill Label */}
           {activeSwatch && (
-            <motion.div
+            <div
               key={activeSwatch.hex}
-              initial={{ opacity: 0, y: 4 }}
-              animate={{ opacity: 1, y: 0 }}
-              className={`inline-flex items-center gap-2.5 px-5 py-1.5 rounded-full border ${themeStyles.subBoxBg}`}
+              className={`inline-flex items-center gap-2.5 px-5 py-1.5 rounded-full border animate-fade-in ${themeStyles.subBoxBg}`}
             >
               <span
                 className="w-3 h-3 rounded-full border border-black/20 shrink-0"
@@ -210,7 +205,7 @@ export function DressCodeModule({
               <span className={`font-serif italic text-base font-medium ${themeStyles.textPrimary}`}>
                 {activeSwatch.name}
               </span>
-            </motion.div>
+            </div>
           )}
         </div>
       </div>

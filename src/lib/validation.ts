@@ -1,5 +1,3 @@
-import { z } from 'zod';
-
 export const DEFAULT_GUEST_NAME = 'Farhan & Partner';
 
 /**
@@ -191,58 +189,113 @@ export function formatEntryDate(isoString: string): string {
   }
 }
 
+export interface GuestbookFormData {
+  guestName: string;
+  attendance: 'hadir' | 'tidak_hadir' | 'ragu';
+  pax: number;
+  message: string;
+  honeypot: string;
+}
+
+export type SafeParseResult<T> =
+  | { success: true; data: T }
+  | { success: false; error: { errors: Array<{ message: string }> } };
+
+function failValidation(message: string): SafeParseResult<GuestbookFormData> {
+  return {
+    success: false,
+    error: { errors: [{ message }] },
+  };
+}
+
 /**
- * Zod schema for RSVP & Guestbook submissions.
+ * Lightweight zero-dependency schema for RSVP & Guestbook submissions.
  * Validates guest name, attendance status, pax count, message, and honeypot.
  * Automatically coerces pax to 0 if attendance is 'tidak_hadir'.
  */
-export const guestbookSchema = z
-  .object({
-    guestName: z
-      .string()
-      .trim()
-      .min(2, 'Nama minimal 2 karakter')
-      .max(40, 'Nama maksimal 40 karakter')
-      .transform(stripHtmlTags)
-      .refine((val) => val.length >= 2, {
-        message: 'Nama minimal 2 karakter valid',
-      }),
-    attendance: z.enum(['hadir', 'tidak_hadir', 'ragu'], {
-      required_error: 'Pilih status kehadiran',
-    }),
-    pax: z.coerce
-      .number({ invalid_type_error: 'Jumlah tamu harus berupa angka' })
-      .int('Jumlah tamu harus bilangan bulat')
-      .min(0, 'Minimal 0 tamu')
-      .max(5, 'Maksimal 5 tamu'),
-    message: z
-      .string()
-      .trim()
-      .min(5, 'Pesan minimal 5 karakter')
-      .max(300, 'Pesan maksimal 300 karakter')
-      .transform(stripHtmlTags)
-      .refine((val) => val.length >= 5, {
-        message: 'Pesan minimal 5 karakter valid',
-      }),
-    honeypot: z
-      .string()
-      .max(0, 'Spam terdeteksi')
-      .optional()
-      .default(''),
-  })
-  .transform((data) => {
-    // If attendance is 'tidak_hadir', force pax to 0
-    if (data.attendance === 'tidak_hadir') {
-      return {
-        ...data,
-        pax: 0,
-      };
+export const guestbookSchema = {
+  safeParse(input: unknown): SafeParseResult<GuestbookFormData> {
+    if (typeof input !== 'object' || input === null) {
+      return failValidation('Data yang dimasukkan tidak valid.');
     }
-    // If attending or undecided, ensure at least 1 pax
-    return {
-      ...data,
-      pax: Math.max(1, Math.min(5, data.pax)),
-    };
-  });
 
-export type GuestbookFormData = z.infer<typeof guestbookSchema>;
+    const raw = input as Record<string, unknown>;
+
+    // 1. Honeypot check
+    const rawHoneypot = raw.honeypot === undefined || raw.honeypot === null ? '' : String(raw.honeypot);
+    if (rawHoneypot.length > 0) {
+      return failValidation('Spam terdeteksi');
+    }
+
+    // 2. Guest Name validation
+    if (typeof raw.guestName !== 'string') {
+      return failValidation('Nama minimal 2 karakter');
+    }
+    const trimmedName = raw.guestName.trim();
+    if (trimmedName.length < 2) {
+      return failValidation('Nama minimal 2 karakter');
+    }
+    if (trimmedName.length > 40) {
+      return failValidation('Nama maksimal 40 karakter');
+    }
+    const cleanedName = stripHtmlTags(trimmedName);
+    if (cleanedName.length < 2) {
+      return failValidation('Nama minimal 2 karakter valid');
+    }
+
+    // 3. Attendance validation
+    if (
+      raw.attendance !== 'hadir' &&
+      raw.attendance !== 'tidak_hadir' &&
+      raw.attendance !== 'ragu'
+    ) {
+      return failValidation('Pilih status kehadiran');
+    }
+    const attendance = raw.attendance;
+
+    // 4. Pax validation
+    const coercedPax = Number(raw.pax);
+    if (!Number.isFinite(coercedPax)) {
+      return failValidation('Jumlah tamu harus berupa angka');
+    }
+    if (!Number.isInteger(coercedPax)) {
+      return failValidation('Jumlah tamu harus bilangan bulat');
+    }
+    if (coercedPax < 0) {
+      return failValidation('Minimal 0 tamu');
+    }
+    if (coercedPax > 5) {
+      return failValidation('Maksimal 5 tamu');
+    }
+
+    // 5. Message validation
+    if (typeof raw.message !== 'string') {
+      return failValidation('Pesan minimal 5 karakter');
+    }
+    const trimmedMessage = raw.message.trim();
+    if (trimmedMessage.length < 5) {
+      return failValidation('Pesan minimal 5 karakter');
+    }
+    if (trimmedMessage.length > 300) {
+      return failValidation('Pesan maksimal 300 karakter');
+    }
+    const cleanedMessage = stripHtmlTags(trimmedMessage);
+    if (cleanedMessage.length < 5) {
+      return failValidation('Pesan minimal 5 karakter valid');
+    }
+
+    const finalPax =
+      attendance === 'tidak_hadir' ? 0 : Math.max(1, Math.min(5, coercedPax));
+
+    return {
+      success: true,
+      data: {
+        guestName: cleanedName,
+        attendance,
+        pax: finalPax,
+        message: cleanedMessage,
+        honeypot: '',
+      },
+    };
+  },
+};
