@@ -168,6 +168,8 @@ export function HybridLocationModule({
             <img
               src={venueSketchUrl}
               alt={`Sketsa Arsitektur ${venueName}`}
+              width={800}
+              height={220}
               loading="lazy"
               decoding="async"
               className={`w-full max-w-2xl h-auto object-contain max-h-[220px] select-none ${themeStyles.sketchFilter}`}
@@ -316,6 +318,8 @@ export function HybridLocationModule({
             <img
               src={visualMapAssetUrl}
               alt="Denah Arsitektural Lokasi Acara"
+              width={800}
+              height={450}
               loading="lazy"
               decoding="async"
               className="w-full h-auto object-contain max-h-[380px] select-none"
@@ -414,6 +418,10 @@ export function HybridLocationModule({
                 <img
                   src={visualMapAssetUrl}
                   alt="Denah Lokasi Full"
+                  width={1200}
+                  height={675}
+                  loading="lazy"
+                  decoding="async"
                   className="max-h-[80vh] w-auto object-contain border border-black/10 shadow-xl bg-white"
                 />
               </motion.div>

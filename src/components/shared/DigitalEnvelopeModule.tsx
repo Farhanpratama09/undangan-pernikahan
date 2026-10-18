@@ -188,6 +188,8 @@ export function DigitalEnvelopeModule({
                         <img
                           src={acc.qrImageUrl}
                           alt={`QRIS ${acc.bankName}`}
+                          width={192}
+                          height={192}
                           loading="lazy"
                           decoding="async"
                           className="w-48 h-auto object-contain mb-2"

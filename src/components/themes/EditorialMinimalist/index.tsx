@@ -88,6 +88,9 @@ export function EditorialMinimalistTheme({
                 alt="Editorial Cover Couple"
                 fetchPriority="high"
                 decoding="async"
+                width={800}
+                height={500}
+                srcSet="https://images.unsplash.com/photo-1519741497674-611481863552?w=480&q=75&fm=webp&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1519741497674-611481863552?w=640&q=75&fm=webp&auto=format&fit=crop 640w, https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=75&fm=webp&auto=format&fit=crop 800w"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 800px"
                 className="w-full h-full object-cover contrast-[1.03] hover:scale-105 transition-transform duration-700"
               />
@@ -176,6 +179,8 @@ export function EditorialMinimalistTheme({
                   alt={data.couple.groom.fullName}
                   loading="lazy"
                   decoding="async"
+                  width={400}
+                  height={500}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -217,6 +222,8 @@ export function EditorialMinimalistTheme({
                   alt={data.couple.bride.fullName}
                   loading="lazy"
                   decoding="async"
+                  width={400}
+                  height={500}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -532,6 +539,8 @@ export function EditorialMinimalistTheme({
                   alt={`Editorial Gallery ${i + 1}`}
                   loading="lazy"
                   decoding="async"
+                  width={600}
+                  height={800}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>

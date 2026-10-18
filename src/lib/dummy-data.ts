@@ -12,7 +12,7 @@ export const portfolioWeddingData: WeddingInvitationData = {
       fatherName: 'Ir. Bambang Trihatmojo',
       motherName: 'Dra. Endang Purwaningsih',
       instagramHandle: '@aryasatria',
-      photoUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1200&auto=format&fit=crop',
+      photoUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&q=75&fm=webp&auto=format&fit=crop',
     },
     bride: {
       fullName: 'Kirana Larasati Kusumawardhani, S.Ds.',
@@ -20,7 +20,7 @@ export const portfolioWeddingData: WeddingInvitationData = {
       fatherName: 'Dr. Hendro Wardhana, Sp.A(K)',
       motherName: 'Siti Nurhaliza, M.Pd.',
       instagramHandle: '@kiranalarasati',
-      photoUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1200&auto=format&fit=crop',
+      photoUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=75&fm=webp&auto=format&fit=crop',
     },
   },
   events: {
@@ -63,11 +63,11 @@ export const portfolioWeddingData: WeddingInvitationData = {
   },
   gallery: [
     'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=75&fm=webp&auto=format&fit=crop', // Cover couple editorial
-    'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?q=80&w=1200&auto=format&fit=crop', // Ring & detail
-    'https://images.unsplash.com/photo-1583939003579-730e3918a45a?q=80&w=1200&auto=format&fit=crop', // Intimate stroll
-    'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?q=80&w=1200&auto=format&fit=crop', // Editorial veil
-    'https://images.unsplash.com/photo-1606800052052-a08af7148866?q=80&w=1200&auto=format&fit=crop', // Glasshouse venue vibe
-    'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?q=80&w=1200&auto=format&fit=crop', // Sunset horizon
+    'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?w=800&q=75&fm=webp&auto=format&fit=crop', // Ring & detail
+    'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=75&fm=webp&auto=format&fit=crop', // Intimate stroll
+    'https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?w=800&q=75&fm=webp&auto=format&fit=crop', // Editorial veil
+    'https://images.unsplash.com/photo-1606800052052-a08af7148866?w=800&q=75&fm=webp&auto=format&fit=crop', // Glasshouse venue vibe
+    'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?w=800&q=75&fm=webp&auto=format&fit=crop', // Sunset horizon
   ],
   loveStory: [
     {

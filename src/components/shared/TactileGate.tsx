@@ -133,7 +133,7 @@ export function TactileGate({
             {/* TOP SECTION: Invitation Header & Couple Script Names */}
             <div className="relative z-10 pt-7 sm:pt-9 px-5 sm:px-8 text-center">
               <p
-                className={`font-sans text-[9px] sm:text-[10px] tracking-[0.28em] uppercase ${themeStyles.textMuted} mb-2`}
+                className={`font-sans text-[9px] sm:text-[10px] tracking-[0.28em] uppercase ${themeStyles.textPrimary} font-medium mb-2`}
               >
                 YOU ARE CORDIALLY INVITED TO THE WEDDING OF
               </p>
@@ -250,7 +250,7 @@ export function TactileGate({
                 className={`w-full py-3.5 px-4 rounded-2xl border ${themeStyles.guestCardBg} shadow-sm`}
               >
                 <p
-                  className={`font-sans text-[10px] tracking-[0.18em] uppercase ${themeStyles.textMuted} mb-1`}
+                  className={`font-sans text-[10px] tracking-[0.18em] uppercase ${themeStyles.textPrimary} font-medium mb-1`}
                 >
                   Kepada Yth. Bapak/Ibu/Saudara/i
                 </p>
@@ -261,7 +261,7 @@ export function TactileGate({
                 </h2>
               </div>
 
-              <p className={`font-serif italic text-xs tracking-wide mt-3 opacity-80 ${themeStyles.textMuted}`}>
+              <p className={`font-serif italic text-xs tracking-wide mt-3 ${themeStyles.textPrimary} font-medium`}>
                 Ketuk segel lilin untuk membuka sampul &amp; memutar alunan musik
               </p>
             </div>

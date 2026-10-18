@@ -33,7 +33,7 @@ export function useAudioController(srcUrl: string): UseAudioControllerReturn {
 
     const audio = new Audio(srcUrl);
     audio.loop = true;
-    audio.preload = 'auto';
+    audio.preload = 'none';
     audioRef.current = audio;
 
     const handlePlay = () => setIsPlaying(true);

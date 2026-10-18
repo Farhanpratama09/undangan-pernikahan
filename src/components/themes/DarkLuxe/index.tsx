@@ -99,6 +99,9 @@ export function DarkLuxeTheme({
                 alt="Cinematic Sunset Couple"
                 fetchPriority="high"
                 decoding="async"
+                width={800}
+                height={500}
+                srcSet="https://images.unsplash.com/photo-1519741497674-611481863552?w=480&q=75&fm=webp&auto=format&fit=crop 480w, https://images.unsplash.com/photo-1519741497674-611481863552?w=640&q=75&fm=webp&auto=format&fit=crop 640w, https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=75&fm=webp&auto=format&fit=crop 800w"
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 800px"
                 className="w-full h-full object-cover brightness-90 contrast-110 hover:scale-105 transition-transform duration-1000"
               />
@@ -216,6 +219,8 @@ export function DarkLuxeTheme({
                   alt={data.couple.groom.fullName}
                   loading="lazy"
                   decoding="async"
+                  width={400}
+                  height={533}
                   className="w-full h-full object-cover brightness-95 hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -262,6 +267,8 @@ export function DarkLuxeTheme({
                   alt={data.couple.bride.fullName}
                   loading="lazy"
                   decoding="async"
+                  width={400}
+                  height={533}
                   className="w-full h-full object-cover brightness-95 hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -482,6 +489,8 @@ export function DarkLuxeTheme({
                     alt={item.title}
                     loading="lazy"
                     decoding="async"
+                    width={160}
+                    height={160}
                     className="w-full h-full object-cover"
                   />
                 </div>
@@ -567,6 +576,8 @@ export function DarkLuxeTheme({
                   alt={`Dark Luxe Moment ${i + 1}`}
                   loading="lazy"
                   decoding="async"
+                  width={600}
+                  height={800}
                   className="w-full h-full object-cover brightness-90 contrast-105 group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
