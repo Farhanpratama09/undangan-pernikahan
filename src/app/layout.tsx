@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from 'next';
-import { Cormorant_Garamond, Plus_Jakarta_Sans, JetBrains_Mono, Pinyon_Script } from 'next/font/google';
+import { Cormorant_Garamond, Plus_Jakarta_Sans, Pinyon_Script } from 'next/font/google';
 import './globals.css';
 
 const cormorant = Cormorant_Garamond({
@@ -14,13 +14,6 @@ const jakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
   weight: ['300', '400', '500', '600', '700'],
   variable: '--font-jakarta',
-  display: 'swap',
-});
-
-const mono = JetBrains_Mono({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-mono',
   display: 'swap',
 });
 
@@ -65,7 +58,7 @@ export default function RootLayout({
   return (
     <html
       lang="id"
-      className={`${cormorant.variable} ${jakarta.variable} ${mono.variable} ${pinyon.variable}`}
+      className={`${cormorant.variable} ${jakarta.variable} ${pinyon.variable}`}
     >
       <body className="min-h-screen bg-[#F6F2EA] text-[#231C18] font-sans antialiased">
         {children}
