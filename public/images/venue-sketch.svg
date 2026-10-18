@@ -1,0 +1,148 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" fill="none">
+  <!-- Subtle fine line-art architectural sketch of The Majestic Glass House -->
+  <g stroke="#2C221E" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round" opacity="0.88">
+    <!-- Ground Horizon & Forecourt Steps -->
+    <line x1="40" y1="320" x2="760" y2="320" stroke-width="1.4" />
+    <line x1="90" y1="330" x2="710" y2="330" stroke-width="0.9" opacity="0.7" />
+    <line x1="150" y1="340" x2="650" y2="340" stroke-width="0.7" opacity="0.5" />
+    <path d="M 270 320 L 290 304 L 510 304 L 530 320" />
+    <line x1="280" y1="312" x2="520" y2="312" stroke-width="0.8" />
+
+    <!-- Central Classical Pediment & Glass Conservatory Dome -->
+    <path d="M 260 140 C 260 68, 540 68, 540 140" stroke-width="1.2" />
+    <path d="M 275 140 C 275 82, 525 82, 525 140" stroke-width="0.75" stroke-dasharray="3 2" />
+    <!-- Dome Ribs -->
+    <path d="M 400 72 L 400 140" stroke-width="0.9" />
+    <path d="M 340 84 C 348 108, 352 125, 355 140" stroke-width="0.75" />
+    <path d="M 460 84 C 452 108, 448 125, 445 140" stroke-width="0.75" />
+    <path d="M 300 104 C 312 120, 316 130, 320 140" stroke-width="0.75" />
+    <path d="M 500 104 C 488 120, 484 130, 480 140" stroke-width="0.75" />
+    <!-- Finial Spire at Peak -->
+    <line x1="400" y1="48" x2="400" y2="72" stroke-width="1.2" />
+    <circle cx="400" cy="45" r="3" />
+    <path d="M 392 72 L 400 60 L 408 72" />
+
+    <!-- Main Entablature & Cornice -->
+    <rect x="210" y="140" width="380" height="12" />
+    <line x1="204" y1="140" x2="596" y2="140" stroke-width="1.5" />
+    <line x1="215" y1="146" x2="585" y2="146" stroke-width="0.6" />
+
+    <!-- Triangular Classical Portico Gable -->
+    <path d="M 290 140 L 400 96 L 510 140 Z" fill="#F6F2EA" fill-opacity="0.3" stroke-width="1.2" />
+    <path d="M 308 136 L 400 103 L 492 136" stroke-width="0.7" />
+    <circle cx="400" cy="121" r="8" stroke-width="0.9" />
+    <circle cx="400" cy="121" r="4" stroke-width="0.6" />
+
+    <!-- Central Pavilion Body & Colonnade Pillars -->
+    <rect x="220" y="152" width="360" height="152" />
+
+    <!-- Fluted Classical Columns (Left & Right of Grand Arch) -->
+    <!-- Column 1 -->
+    <rect x="234" y="156" width="12" height="148" />
+    <line x1="238" y1="160" x2="238" y2="300" stroke-width="0.5" />
+    <line x1="242" y1="160" x2="242" y2="300" stroke-width="0.5" />
+    <rect x="231" y="152" width="18" height="4" />
+    <rect x="231" y="300" width="18" height="4" />
+
+    <!-- Column 2 -->
+    <rect x="304" y="156" width="12" height="148" />
+    <line x1="308" y1="160" x2="308" y2="300" stroke-width="0.5" />
+    <line x1="312" y1="160" x2="312" y2="300" stroke-width="0.5" />
+    <rect x="301" y="152" width="18" height="4" />
+    <rect x="301" y="300" width="18" height="4" />
+
+    <!-- Column 3 -->
+    <rect x="484" y="156" width="12" height="148" />
+    <line x1="488" y1="160" x2="488" y2="300" stroke-width="0.5" />
+    <line x1="492" y1="160" x2="492" y2="300" stroke-width="0.5" />
+    <rect x="481" y="152" width="18" height="4" />
+    <rect x="481" y="300" width="18" height="4" />
+
+    <!-- Column 4 -->
+    <rect x="554" y="156" width="12" height="148" />
+    <line x1="558" y1="160" x2="558" y2="300" stroke-width="0.5" />
+    <line x1="562" y1="160" x2="562" y2="300" stroke-width="0.5" />
+    <rect x="551" y="152" width="18" height="4" />
+    <rect x="551" y="300" width="18" height="4" />
+
+    <!-- Grand Central Arch Entrance -->
+    <path d="M 340 304 L 340 218 C 340 172, 460 172, 460 218 L 460 304" stroke-width="1.3" />
+    <path d="M 347 304 L 347 220 C 347 180, 453 180, 453 220 L 453 304" stroke-width="0.7" />
+    <!-- Mullions Inside Grand Arch -->
+    <line x1="400" y1="183" x2="400" y2="304" stroke-width="0.9" />
+    <line x1="373" y1="192" x2="373" y2="304" stroke-width="0.6" />
+    <line x1="427" y1="192" x2="427" y2="304" stroke-width="0.6" />
+    <line x1="347" y1="224" x2="453" y2="224" stroke-width="0.8" />
+    <line x1="347" y1="260" x2="453" y2="260" stroke-width="0.6" />
+    <!-- Arch Fanlight Rays -->
+    <line x1="400" y1="224" x2="362" y2="195" stroke-width="0.6" />
+    <line x1="400" y1="224" x2="438" y2="195" stroke-width="0.6" />
+    <!-- Chandelier Silhouette inside Grand Arch -->
+    <line x1="400" y1="184" x2="400" y2="204" stroke-width="0.7" />
+    <path d="M 388 208 C 394 214, 406 214, 412 208" stroke-width="0.8" />
+    <circle cx="400" cy="206" r="3" stroke-width="0.7" />
+
+    <!-- Left & Right Tall Arched Glass Windows in Main Pavilion -->
+    <!-- Left Arch Window -->
+    <path d="M 258 290 L 258 210 C 258 188, 292 188, 292 210 L 292 290 Z" />
+    <line x1="275" y1="193" x2="275" y2="290" stroke-width="0.6" />
+    <line x1="258" y1="225" x2="292" y2="225" stroke-width="0.6" />
+    <line x1="258" y1="258" x2="292" y2="258" stroke-width="0.6" />
+
+    <!-- Right Arch Window -->
+    <path d="M 508 290 L 508 210 C 508 188, 542 188, 542 210 L 542 290 Z" />
+    <line x1="525" y1="193" x2="525" y2="290" stroke-width="0.6" />
+    <line x1="508" y1="225" x2="542" y2="225" stroke-width="0.6" />
+    <line x1="508" y1="258" x2="542" y2="258" stroke-width="0.6" />
+
+    <!-- Left Wing Glass Orangerie -->
+    <rect x="110" y="188" width="110" height="132" />
+    <line x1="104" y1="188" x2="220" y2="188" stroke-width="1.3" />
+    <path d="M 116 188 L 130 164 L 220 164" stroke-width="0.9" />
+    <!-- Left Wing Arched Windows -->
+    <path d="M 126 300 L 126 226 C 126 208, 156 208, 156 226 L 156 300 Z" />
+    <line x1="141" y1="212" x2="141" y2="300" stroke-width="0.6" />
+    <line x1="126" y1="252" x2="156" y2="252" stroke-width="0.6" />
+
+    <path d="M 172 300 L 172 226 C 172 208, 202 208, 202 226 L 202 300 Z" />
+    <line x1="187" y1="212" x2="187" y2="300" stroke-width="0.6" />
+    <line x1="172" y1="252" x2="202" y2="252" stroke-width="0.6" />
+
+    <!-- Right Wing Glass Orangerie -->
+    <rect x="580" y="188" width="110" height="132" />
+    <line x1="580" y1="188" x2="696" y2="188" stroke-width="1.3" />
+    <path d="M 580 164 L 670 164 L 684 188" stroke-width="0.9" />
+    <!-- Right Wing Arched Windows -->
+    <path d="M 598 300 L 598 226 C 598 208, 628 208, 628 226 L 628 300 Z" />
+    <line x1="613" y1="212" x2="613" y2="300" stroke-width="0.6" />
+    <line x1="598" y1="252" x2="628" y2="252" stroke-width="0.6" />
+
+    <path d="M 644 300 L 644 226 C 644 208, 674 208, 674 226 L 674 300 Z" />
+    <line x1="659" y1="212" x2="659" y2="300" stroke-width="0.6" />
+    <line x1="644" y1="252" x2="674" y2="252" stroke-width="0.6" />
+
+    <!-- Botanical Cypress & Olive Trees (Left Side Organic Line Sketch) -->
+    <path d="M 72 320 L 72 250" stroke-width="1.2" />
+    <path d="M 72 285 L 60 270 M 72 275 L 84 260" stroke-width="0.8" />
+    <path d="M 72 180 C 48 188, 42 225, 52 255 C 44 268, 56 290, 72 288 C 88 290, 98 268, 90 255 C 100 225, 92 188, 72 180 Z" stroke-width="0.9" />
+    <path d="M 58 235 C 65 230, 78 232, 84 240" stroke-width="0.6" />
+    <path d="M 62 210 C 68 206, 76 206, 82 212" stroke-width="0.6" />
+
+    <!-- Left Foreground Shrubs -->
+    <path d="M 92 320 C 90 306, 102 298, 112 304 C 118 296, 132 300, 134 312 C 142 310, 148 315, 148 320" stroke-width="0.85" />
+
+    <!-- Botanical Cypress & Olive Trees (Right Side Organic Line Sketch) -->
+    <path d="M 728 320 L 728 250" stroke-width="1.2" />
+    <path d="M 728 285 L 716 270 M 728 275 L 740 260" stroke-width="0.8" />
+    <path d="M 728 180 C 708 188, 700 225, 710 255 C 702 268, 712 290, 728 288 C 744 290, 756 268, 748 255 C 758 225, 752 188, 728 180 Z" stroke-width="0.9" />
+    <path d="M 716 235 C 722 230, 735 232, 742 240" stroke-width="0.6" />
+    <path d="M 718 210 C 724 206, 732 206, 738 212" stroke-width="0.6" />
+
+    <!-- Right Foreground Shrubs -->
+    <path d="M 652 320 C 652 312, 658 308, 666 312 C 670 300, 684 296, 690 304 C 700 298, 710 306, 708 320" stroke-width="0.85" />
+
+    <!-- Subtle Sky Birds / Architectural Hatching -->
+    <path d="M 190 95 C 195 90, 200 92, 202 96 C 204 92, 209 90, 214 95" stroke-width="0.7" opacity="0.6" />
+    <path d="M 220 82 C 224 78, 228 80, 230 83 C 232 80, 236 78, 240 82" stroke-width="0.6" opacity="0.5" />
+  </g>
+</svg>

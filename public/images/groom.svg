@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="100%" height="100%">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#231F1D" />
+      <stop offset="100%" stop-color="#141413" />
+    </linearGradient>
+    <pattern id="noise" width="20" height="20" patternUnits="userSpaceOnUse">
+      <circle cx="2" cy="2" r="0.5" fill="#EAE6DF" opacity="0.1" />
+      <circle cx="12" cy="14" r="0.5" fill="#EAE6DF" opacity="0.15" />
+      <circle cx="18" cy="7" r="0.5" fill="#EAE6DF" opacity="0.08" />
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#bg)" />
+  <rect width="100%" height="100%" fill="url(#noise)" />
+  
+  <!-- Subtle Framing Line -->
+  <rect x="30" y="30" width="540" height="740" fill="none" stroke="#D4AF37" stroke-width="0.75" opacity="0.6" />
+  
+  <!-- Silhouette Art -->
+  <g transform="translate(300, 380)" stroke="#D4AF37" stroke-width="1.2" fill="none" opacity="0.85">
+    <!-- Groom Silhouette Line Art -->
+    <path d="M 0,-140 C -35,-140 -50,-100 -50,-60 C -50,-15 -25,10 0,20 C 25,10 50,-15 50,-60 C 50,-100 35,-140 0,-140 Z" />
+    <!-- Shoulders & Tuxedo line -->
+    <path d="M -50,-10 C -90,20 -150,70 -160,180 L 160,180 C 150,70 90,20 50,-10" />
+    <!-- Lapel & Tie -->
+    <path d="M -30,20 L 0,110 L 30,20" />
+    <path d="M 0,20 L 0,80" />
+  </g>
+
+  <!-- Typography -->
+  <text x="300" y="630" font-family="'Cormorant Garamond', Georgia, serif" font-size="28" letter-spacing="4" text-anchor="middle" fill="#EAE6DF">ARYA SATRIA</text>
+  <text x="300" y="660" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="3" text-anchor="middle" fill="#D4AF37">THE GROOM • EDITORIAL PORTRAIT</text>
+</svg>

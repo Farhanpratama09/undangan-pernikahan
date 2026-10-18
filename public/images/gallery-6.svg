@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="100%" height="100%">
+  <rect width="100%" height="100%" fill="#141413" />
+  <rect x="20" y="20" width="760" height="960" fill="none" stroke="#D4AF37" stroke-width="0.75" opacity="0.3" />
+  <g transform="translate(400, 430)" stroke="#D4AF37" fill="none" stroke-width="1.2" opacity="0.8">
+    <ellipse cx="0" cy="0" rx="140" ry="80" stroke-dasharray="3 3" />
+    <line x1="-160" y1="0" x2="160" y2="0" stroke-width="0.75" />
+    <circle cx="0" cy="0" r="12" fill="#D4AF37" />
+  </g>
+  <text x="400" y="740" font-family="'Cormorant Garamond', Georgia, serif" font-size="28" letter-spacing="4" text-anchor="middle" fill="#F8F6F2">TOWARDS THE HORIZON</text>
+  <text x="400" y="775" font-family="'JetBrains Mono', monospace" font-size="11" letter-spacing="3" text-anchor="middle" fill="#D4AF37">2026 • THE NEW CHAPTER</text>
+</svg>
