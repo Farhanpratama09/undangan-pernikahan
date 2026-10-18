@@ -97,6 +97,7 @@ export function DarkLuxeTheme({
               <img
                 src={data.gallery[0]}
                 alt="Cinematic Sunset Couple"
+                fetchPriority="high"
                 decoding="async"
                 className="w-full h-full object-cover brightness-90 contrast-110 hover:scale-105 transition-transform duration-1000"
               />

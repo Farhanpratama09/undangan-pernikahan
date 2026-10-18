@@ -127,6 +127,7 @@ export function ModernHeritageTheme({
                 <img
                   src={data.gallery[0]}
                   alt="Modern Heritage Cover"
+                  fetchPriority="high"
                   decoding="async"
                   className="w-full h-full object-cover sepia-[0.08] contrast-[1.03] hover:scale-105 transition-transform duration-700"
                 />

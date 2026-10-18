@@ -86,6 +86,7 @@ export function EditorialMinimalistTheme({
               <img
                 src={data.gallery[0]}
                 alt="Editorial Cover Couple"
+                fetchPriority="high"
                 decoding="async"
                 className="w-full h-full object-cover contrast-[1.03] hover:scale-105 transition-transform duration-700"
               />

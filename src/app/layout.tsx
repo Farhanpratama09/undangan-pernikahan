@@ -59,6 +59,10 @@ export default function RootLayout({
       lang="id"
       className={`${cormorant.variable} ${jakarta.variable} ${pinyon.variable}`}
     >
+      <head>
+        <link rel="preconnect" href="https://images.unsplash.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://images.unsplash.com" />
+      </head>
       <body className="min-h-screen bg-[#F6F2EA] text-[#231C18] font-sans antialiased">
         {children}
       </body>
